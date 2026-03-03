@@ -15,3 +15,11 @@ ggplot(
   # geom_ functions can take it the 'mapping' variable
   # we only want color based on species but not lines to be separated
   # use shapes for colorblind people
+
+# ggplot2 calls
+# ggplot(data =, mapping =) - two important variables
+# can be ommited ggplot(penguins, aes()) - to save time
+# piping(learn in the future): 
+# penguins |> 
+  # ggplot(aes(x = flipper_length_mm, y = body_mass_g)) + 
+  # geom_point()
