@@ -23,3 +23,15 @@ ggplot(
 # penguins |> 
   # ggplot(aes(x = flipper_length_mm, y = body_mass_g)) + 
   # geom_point()
+
+# visualizing distributions
+# categorical variable: A variable is categorical if it can only take one of a small set of values.
+# can use bar chart, representing how many observations per single variable
+ggplot(penguins, aes(x = species)) + # non-ordered, categorical since only using x
+  geom_bar()
+
+# transform the variable into a factor, then arrange them based on frequency, then plot
+
+ggplot(penguins, aes(x = fct_infreq(species))) +
+  geom_bar()
+
