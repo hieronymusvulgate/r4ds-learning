@@ -35,3 +35,21 @@ ggplot(penguins, aes(x = species)) + # non-ordered, categorical since only using
 ggplot(penguins, aes(x = fct_infreq(species))) +
   geom_bar()
 
+# numerical variable: A variable that can take a wide range of values
+# can add, subtract, take average of these values
+# can be continuous (e.g. curve)  or discrete
+
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 200) # binwidth is the width of the intervals
+
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 20) # too many useless intervals
+
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 2000) # too little to visualize
+
+# geom_density
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_density() # smooth out histogram, more practical
+# glean at the shape of the histogram
+# find mode and skewness more easily
