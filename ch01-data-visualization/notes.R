@@ -53,3 +53,32 @@ ggplot(penguins, aes(x = body_mass_g)) +
   geom_density() # smooth out histogram, more practical
 # glean at the shape of the histogram
 # find mode and skewness more easily
+
+
+# Visualising relationships
+# Need to have at least 2 variables mapped to the aesthetics of the plot
+
+# Numerical and Categorical: Box plot
+# The box is 25th to 75th percentile (Interquartile range)
+# The line is the median (50th percentile)
+# Can find out whether the plot is symmetric about the median or skewed to one side
+# Outliers are plotted as dots: Anything 1.5 times from either side of the IQR
+# Distribution of species by body mass
+ggplot(penguins, aes(x = species, y = body_mass_g)) +
+  geom_boxplot()
+# Density plot
+ggplot(penguins, aes(x = body_mass_g, color = species)) +
+  geom_density(linewidth = 0.75) # Using linewidth to adjust the width of lines to make it stand out more
+
+# Fill the density curve
+ggplot(penguins, aes(x = body_mass_g, color = species, fill = species)) +
+  geom_density(alpha = 0.5) # Alpha 0-1 0 being totally transparent and 1 being totally opaque
+# when you map attributes inside aes, it varies with data
+# when attributes are set outside of aes, they are fixed
+
+# 2 Categorical values: Stacked Bar plot
+
+ggplot(penguins, aes(x = island, fill = species)) + # visualising the distribution to species in each island
+  geom_bar()
+# Shows that there are roughly the same number of Adelies on each island
+# Doesn't show the percentage balance between each island
